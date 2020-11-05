@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <section class="header">
-      <slot name="header"></slot>
+      <lib-header></lib-header>
     </section>
     <section class="body">
       <slot name="body"></slot>
@@ -13,11 +13,16 @@
 </template>
 
 <script>
+import libHeader from '@/components/header/header.vue';
+
 export default {
   name: 'home-template',
+  components: {
+    libHeader,
+  },
 };
 </script>
 
-<style>
-@import url("./styles.css");
+<style scoped>
+  @import url("./styles.css");
 </style>

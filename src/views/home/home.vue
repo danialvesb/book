@@ -1,7 +1,6 @@
 <template>
   <home-template>
-    <div slot="header"></div>
-    <div slot="body"></div>
+    <section slot="body"></section>
   </home-template>
 </template>
 

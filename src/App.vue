@@ -11,8 +11,8 @@ export default {
 };
 </script>
 
-<style>
-@import url('./assets/base.css');
+<style scoped>
+@import url('./assets/css/base.css');
 #app {
   display: flex;
   width: 100%;
