@@ -16,4 +16,9 @@
     padding: 10px;
     font-size: 1.2rem;
     cursor: pointer;
+
+}
+
+.navbar {
+    width: 70%;
 }

@@ -3,6 +3,9 @@
     <section class="header">
       <lib-header></lib-header>
     </section>
+    <section class="breadcrumbs">
+        <slot name="breadcrumbs"></slot>
+    </section>
     <section class="body">
       <slot name="body"></slot>
     </section>
