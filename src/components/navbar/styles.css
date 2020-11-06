@@ -16,3 +16,19 @@ li {
     align-items: center;
     padding: 10px;
 }
+
+.form-modal {
+    width: 80%;
+    height: 100%;
+    padding: 5px;
+}
+
+.form-inputs {
+    margin-top: 10px;
+    width: 80%;
+    height: 70%;
+    border-radius: 5px;
+    padding: 15px;
+    border: solid 1px;
+    border-color: lightgray;
+}

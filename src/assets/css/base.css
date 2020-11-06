@@ -18,10 +18,6 @@ html, body {
     background-color: #e2e1e0;
 }
 
-.primary {
-    background-color: #e2e1e0;   
-}
-
 .success {
     background-color: #2ecc71;
 }
@@ -35,4 +31,12 @@ html, body {
 
 .danger:hover {
     background-color: #C62828;
+}
+
+.primary {
+    background-color: #1E88E5;
+}
+
+.primary:hover {
+    background-color: #1565C0;
 }

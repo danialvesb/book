@@ -16,7 +16,9 @@
       </div>
       <slot name="header"></slot>
     </div>
-    <div class="body-modal"></div>
+    <div class="body-modal">
+      <slot name="body"></slot>
+    </div>
   </div>
 </template>
 
