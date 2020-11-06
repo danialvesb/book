@@ -1,10 +1,10 @@
 <template>
-  <select class="select">
+  <select class="select" @change="onChange">
     <option value="" disabled hidden selected>Selecione:</option>
     <option
       v-for="(option, index) in options"
       :key="index"
-      :value="index"
+      :value="option"
     >
       {{ option }}
     </option>
@@ -18,6 +18,11 @@ export default {
     options: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    onChange(event) {
+      this.$emit('on-change-select', event.target.value);
     },
   },
 };

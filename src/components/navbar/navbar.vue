@@ -11,17 +11,23 @@
     </ul>
     <modal
       title="Solicitar empréstimo"
+      :size="{ width: '30%', height: '300px' }"
       :show.sync="showModal"
       @close="closeModal"
     >
       <template slot="body">
         <div class="form-modal">
           <h5>Preencha as informações para solicitar reserva:</h5>
-            <div class="form-inputs">
-              <lib-input type="text" placeholder="Nome do livro"/>
-              <lib-select :options="options"/>
-              <lib-button :options="options" color="primary" value="Solicitar"/>
-            </div>
+          <div class="form-inputs">
+            <lib-input type="text" placeholder="Nome do livro" @change-input="changeInput"/>
+            <lib-select :options="options" @on-change-select="changeSelect"/>
+            <lib-button
+              :options="options"
+              color="primary"
+              value="Solicitar"
+              @on-click-button="requestReserve"
+            />
+          </div>
         </div>
       </template>
     </modal>
@@ -46,6 +52,10 @@ export default {
     return {
       showModal: false,
       options: ['Professor', 'Aluno'],
+      data: {
+        book: '',
+        user: '',
+      },
     };
   },
   methods: {
@@ -54,6 +64,17 @@ export default {
     },
     closeModal() {
       this.showModal = false;
+    },
+    requestReserve() {
+      this.closeModal();
+      this.data.book = '';
+      this.data.user = '';
+    },
+    changeInput(event) {
+      this.data.book = event;
+    },
+    changeSelect(event) {
+      this.data.user = event;
     },
   },
 };

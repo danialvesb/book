@@ -1,5 +1,5 @@
 <template>
-  <input :type="type" :placeholder="placeholder" class="input"/>
+  <input :type="type" :placeholder="placeholder" class="input" @change="changeValue"/>
 </template>
 
 <script>
@@ -13,6 +13,11 @@ export default {
     placeholder: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    changeValue(event) {
+      this.$emit('change-input', event.target.value);
     },
   },
 };

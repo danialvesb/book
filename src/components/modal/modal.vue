@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" v-if="showLocal">
+  <div class="modal" v-if="showLocal" :style="[{width: size.width}, {height: size.height}]">
     <div class="header-modal">
       <div class="header-custom">
         <span class="title-modal">
@@ -35,6 +35,14 @@ export default {
     show: {
       type: Boolean,
       default: false,
+      required: false,
+    },
+    size: {
+      type: Object,
+      default: () => ({
+        width: '80%',
+        height: '500px',
+      }),
       required: false,
     },
   },
