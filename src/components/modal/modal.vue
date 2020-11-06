@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" v-if="show">
+  <div class="modal" v-if="showLocal">
     <div class="header-modal">
       <div class="header-custom">
         <span class="title-modal">
@@ -11,7 +11,7 @@
           value="Fechar"
           color="danger"
           eventCustom="toggle-modal"
-          @toggle-modal="toggleModal"
+          @toggle-modal="closeModal"
         />
       </div>
       <slot name="header"></slot>
@@ -30,18 +30,26 @@ export default {
       type: String,
       required: true,
     },
+    show: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
   },
   watch: {
+    show(newValue) {
+      this.showLocal = newValue;
+    },
   },
   data() {
     return {
-      show: true,
+      showLocal: false,
     };
   },
   methods: {
-    toggleModal() {
-      this.show = !this.show;
-      // this.$destroy();
+    closeModal() {
+      this.$emit('close');
+      this.showLocal = false;
     },
   },
   components: {

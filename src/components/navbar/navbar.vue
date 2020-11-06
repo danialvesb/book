@@ -5,7 +5,8 @@
         <lib-button value="Solicitar empréstimo" color="success"  @on-click-button="openModal"/>
       </li>
     </ul>
-    <modal title="Solicitar empréstimo"></modal>
+    <modal title="Solicitar empréstimo" :show.sync="showModal" @close="closeModal">
+    </modal>
   </nav>
 </template>
 
@@ -19,9 +20,17 @@ export default {
     libButton,
     modal,
   },
+  data() {
+    return {
+      showModal: false,
+    };
+  },
   methods: {
-    openModal(event) {
-      this.$emit('toggle-modal', event);
+    openModal() {
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
     },
   },
 };
