@@ -39,9 +39,12 @@ import libButton from '@/components/button/button.vue';
 import libInput from '@/components/form/input/input.vue';
 import libSelect from '@/components/form/select/select.vue';
 import modal from '@/components/modal/modal.vue';
+import formatDate from '@/mixins/date';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'navbar',
+  mixins: [formatDate],
   components: {
     libButton,
     modal,
@@ -55,10 +58,14 @@ export default {
       data: {
         book: '',
         user: '',
+        days: '',
+        group_id: 0,
+        created_date: this.formatDate(new Date()),
       },
     };
   },
   methods: {
+    ...mapActions(['addReserve']),
     openModal() {
       this.showModal = true;
     },
@@ -66,9 +73,17 @@ export default {
       this.showModal = false;
     },
     requestReserve() {
-      this.closeModal();
-      this.data.book = '';
-      this.data.user = '';
+      if (this.data.user === 'Professor') {
+        this.data.days = '10';
+      } else {
+        this.data.days = '3';
+      }
+
+      if (this.checkFieldsForm()) {
+        this.closeModal();
+        this.addReserve({ ...this.data });
+        this.cleanForm();
+      }
     },
     changeInput(event) {
       this.data.book = event;
@@ -76,10 +91,22 @@ export default {
     changeSelect(event) {
       this.data.user = event;
     },
+    cleanForm() {
+      this.data.book = '';
+      this.data.user = '';
+      this.data.days = '';
+    },
+    checkFieldsForm() {
+      if (this.data.book && this.data.user) {
+        return true;
+      }
+      alert('Preencha todos os campos');
+      return false;
+    },
   },
 };
 </script>
 
 <style scoped>
-@import url("./styles.css");
+  @import url("./styles.css");
 </style>

@@ -1,19 +1,14 @@
 .select {
-    border-radius: 3px;
-    padding: 8px;
-    transition: border-color .3s;
-    border-color: lightblue;
-    margin-right: 10px;
-    outline: none;
-    margin: 4px;
+  border-radius: 3px;
+  padding: 8px;
+  transition: border-color .3s;
+  border-color: lightblue;
+  margin-right: 10px;
+  outline: none;
+  margin: 4px;
 }
 
 .select:hover {
-    border-color: cyan;
-    transition: border-color .3s;
+  border-color: cyan;
+  transition: border-color .3s;
 }
-.select:active {
-    border-color: cyan;
-    transition: border-color .3s;
-}
-  

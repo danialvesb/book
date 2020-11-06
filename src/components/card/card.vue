@@ -6,8 +6,8 @@
   <div class="container-card">
     <p>Usuário: {{ data.user }}</p>
     <p>Livro: <strong>{{ data.book }}</strong></p>
-    <p>Dias de emprestimo: {{ data.days }}</p>
-    <p>Data do emprestimo: {{ data.due_date }}</p>
+    <p>Dias de empréstimo: {{ data.days }}</p>
+    <p>Data do empréstimo: {{ data.created_date }}</p>
   </div>
   </div>
 </template>
@@ -33,5 +33,5 @@ export default {
 </script>
 
 <style>
-@import url('./styles.css');
+  @import url('./styles.css');
 </style>

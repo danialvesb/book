@@ -1,14 +1,13 @@
 <template>
   <home-template>
-      <template slot="breadcrumbs">
-        <breadcrumb value="Início"></breadcrumb>
-      </template>
-      <template slot="body">
-        <div class="body-content">
-          <card :data="dataCard">
-          </card>
-        </div>
-      </template>
+    <template slot="breadcrumbs">
+      <breadcrumb value="Início"></breadcrumb>
+    </template>
+    <template slot="body">
+      <div class="body-content">
+        <card v-for="(item, index) in getReserves" :data="item" :key="index"/>
+      </div>
+    </template>
   </home-template>
 </template>
 
@@ -16,29 +15,27 @@
 import homeTemplate from '@/templates/home-template/index.vue';
 import breadcrumb from '@/components/breadcrumb/breadcrumb.vue';
 import card from '@/components/card/card.vue';
-import formatDate from '@/mixins/date';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'home',
-  mixins: [formatDate],
   components: {
     homeTemplate,
     breadcrumb,
     card,
   },
-  data() {
-    return {
-      dataCard: {
-        user: 'Professor',
-        book: 'Cálculos II',
-        days: 10,
-        due_date: this.formatDate(new Date()),
-      },
-    };
+  computed: {
+    ...mapGetters(['getReserves']),
+  },
+  methods: {
+    ...mapActions(['setReserves']),
+  },
+  mounted() {
+    this.setReserves();
   },
 };
 </script>
 
 <style scoped>
-  @import url('./styles.css');
+  @import url("./styles.css");
 </style>

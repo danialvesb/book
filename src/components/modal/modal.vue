@@ -69,5 +69,5 @@ export default {
 </script>
 
 <style scoped>
-@import url("./styles.css");
+  @import url("./styles.css");
 </style>

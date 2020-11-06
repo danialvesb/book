@@ -1,18 +1,14 @@
 .input {
-    border-radius: 3px;
-    padding: 8px;
-    transition: border-color .3s;
-    outline: none;
-    border-color: lightblue;
-    margin: 4px;
+  border-radius: 3px;
+  padding: 8px;
+  transition: border-color .3s;
+  outline: none;
+  border: solid 1px;
+  border-color: lightblue;
+  margin: 4px;
   }
 
 .input:hover {
-    border-color: cyan;
-    transition: border-color .3s;
+  border-color: cyan;
+  transition: border-color .3s;
 }
-.input:active {
-    border-color: cyan;
-    transition: border-color .3s;
-}
-  

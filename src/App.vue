@@ -12,10 +12,5 @@ export default {
 </script>
 
 <style scoped>
-@import url('./assets/css/base.css');
-#app {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
+  @import url('./assets/css/base.css');
 </style>
